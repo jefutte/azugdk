@@ -1,0 +1,54 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "diskName": {
+            "type": "string"
+        },
+        "diskSize": {
+            "type": "string",
+            "allowedValues": [
+                "32",
+                "64",
+                "128",
+                "512",
+                "1024"
+            ]
+        },
+        "location": {
+            "type": "string",
+            "allowedValues": [
+                "North Europe",
+                "West Europe"
+            ]
+        },
+        "storageAccountType": {
+            "type":"string",
+            "allowedValues": [
+                "Standard_LRS",
+                "Premium_LRS"
+            ]
+        }
+    },
+    "variables": {
+        "computeResouresApiVersion": "2016-04-30-preview"
+    },
+    "resources": [
+        {
+        "type": "Microsoft.Compute/disks",
+        "name": "[parameters('diskName')]",
+        "apiVersion": "[variables('computeResouresApiVersion')]",
+        "location": "[parameters('location')]",
+        "properties":
+        {
+            "creationData":
+            {
+                "createOption" : "Empty"
+            }
+            ,
+            "accountType" : "[parameters('storageAccountType')]",
+            "diskSizeGB": "[parameters('diskSize')]"
+        }
+    }
+    ]
+}
