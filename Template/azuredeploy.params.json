@@ -1,0 +1,42 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualNetworkName": {
+            "value": "we-demo-vnet"
+        },
+        "subnetName": {
+            "value": "Management"
+        },
+        "virtualNetworkResourceGroup": {
+            "value": "Demo-Networking"
+        },
+        "adminUsername": {
+            "value": "solvoit"
+        },
+        "adminPassword": {
+            "value": "Passw0rd!123"
+        },
+        "vmName": {
+            "value": "dc5"
+        },
+        "azVMSize": {
+            "value": "Standard_A2_v2"
+        },
+        "imagePublisher": {
+            "value": "MicrosoftWindowsServer"
+        },
+        "imageOffer": {
+            "value": "WindowsServer"
+        },
+        "imageSKU": {
+            "value": "2016-Datacenter"
+        },
+        "storageAccountType": {
+            "value": "Standard_LRS"
+        },
+        "zone": {
+            "value": 1
+        }
+    }
+}
