@@ -95,21 +95,18 @@
                 "description": "Storage account type for the data disk"
             }
         },
-        "zone": {
-            "type": "int",
-            "minValue": 1,
-            "maxValue": 2
-        },
         "timeStamp": {
             "type": "string"
         },
         "registrationKey": {
             "type": "securestring"
+        },
+        "registrationUrl": {
+            "type": "string"
         }
     },
     "variables": {
         "modulesUrl": "https://github.com/Azure/azure-quickstart-templates/raw/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip",
-        "registrationUrl": "https://we-agentservice-prod-1.azure-automation.net/accounts/aab9ae44-e054-488a-b584-a8f1edc0834b",
         "configurationFunction": "UpdateLCMforAAPull.ps1\\ConfigureLCMforAAPull",
         "nodeConfigurationName": "ReplicaDC.localhost",
         "configurationMode": "ApplyAndMonitor",
@@ -150,9 +147,6 @@
             "name": "[concat(parameters('vmName'),'-data-disk1')]",
             "apiVersion": "[variables('crpApiVersion')]",
             "location": "[resourceGroup().location]",
-            "zones": [
-                "[parameters('zone')]"
-            ],
             "properties": {
                 "creationData": {
                     "createOption": "Empty"
@@ -168,9 +162,6 @@
             "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[concat('Microsoft.Compute/disks/', parameters('vmName'), '-data-disk1')]"
-            ],
-            "zones": [
-                "[parameters('zone')]"
             ],
             "properties": {
                 "hardwareProfile": {
@@ -248,7 +239,7 @@
                         },
                         {
                             "name": "RegistrationUrl",
-                            "value": "[variables('registrationUrl')]",
+                            "value": "[parameters('registrationUrl')]",
                             "typeName": "System.String"
                         },
                         {

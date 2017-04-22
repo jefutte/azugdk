@@ -17,9 +17,6 @@
         "adminPassword": {
             "value": "Passw0rd!123"
         },
-        "vmName": {
-            "value": "dc5"
-        },
         "azVMSize": {
             "value": "Standard_A2_v2"
         },
@@ -34,9 +31,6 @@
         },
         "storageAccountType": {
             "value": "Standard_LRS"
-        },
-        "zone": {
-            "value": 1
         }
     }
 }

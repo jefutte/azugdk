@@ -12,23 +12,23 @@ $domainName = "solvoittest.com"
 $primaryDNS = "192.168.11.19"
 
 #Upload and compile DSC configuration
+Import-AzureRmAutomationDscConfiguration -SourcePath $configPath -ResourceGroupName $rgName -AutomationAccountName $automationAccountName -Published -Force
+
+#Compile configuration
 $Parameters = @{
     "computerName" = $computerName
     "domainName" = $domainName
     "primaryDNS" = $primaryDNS
 }
 
-#ConfigData 
 $ConfigData = @{             
     AllNodes = @(             
         @{             
-            Nodename = $computerName
+            NodeName = "localhost"
             PsDscAllowPlainTextPassword = $true            
         }
     )             
 } 
 
-
-Import-AzureRmAutomationDscConfiguration -SourcePath $configPath -ResourceGroupName $rgName -AutomationAccountName $automationAccountName -Published -Force
 $job = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName $rgName -AutomationAccountName $automationAccountName -ConfigurationName $configName -Parameters $Parameters -ConfigurationData $ConfigData
 Get-AzureRmAutomationDscCompilationJob -ResourceGroupName $rgName -AutomationAccountName $automationAccountName -Id $job.Id
