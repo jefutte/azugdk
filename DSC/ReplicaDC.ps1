@@ -38,13 +38,6 @@ Configuration ReplicaDC
 
     Node localhost
     {
-        LocalConfigurationManager            
-        {            
-            ActionAfterReboot = 'ContinueConfiguration'            
-            ConfigurationMode = 'ApplyOnly'            
-            RebootNodeIfNeeded = $true            
-        } 
-
         #Rename Computer
         xComputer Rename
         {
