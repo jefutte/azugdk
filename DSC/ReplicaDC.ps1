@@ -125,16 +125,3 @@ Configuration ReplicaDC
         }
     }
 }
-
-<#
-$ConfigData = @{             
-    AllNodes = @(             
-        @{             
-            Nodename = "localhost"
-            PsDscAllowPlainTextPassword = $true            
-        }            
-    )             
-}  
-#>   
-
-#ReplicaDC -ConfigurationData $ConfigData -safemodeAdministratorCred (Get-Credential -UserName '(Password Only)' -Message "New Domain Safe Mode Administrator Password") -domainCred (Get-Credential -Message "New Domain Admin Credential")
