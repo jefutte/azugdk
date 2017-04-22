@@ -1,19 +1,7 @@
 ﻿# Pre-reqs
 # -VM with 1 disk attached - but not initialized or configured
-# -Install necessary DSC modules, run: 'Install-Module xActiveDirectory, xComputerManagement, xRemoteDesktopAdmin, xNetworking, xStorage'
-#
-# How to use:
-#
-# 1. Copy script to VM, for example C:\DSC
-# 2. Open PowerShell and browse to C:\DSC
-# 3. Run: .\ReplicaDC and enter information:
-#    -Safe Mode Administrator Password
-#    -User to use for promoting DC
-#    -Name of DC (computername!)
-#    -Doman Name 
-#    -IP address of primary DNS
-# 4. Run: Set-DscLocalConfigurationManager -Path .\ReplicaDC\ -Verbose
-# 5. Run: Start-DscConfiguration -Wait -Force -Path .\ReplicaDC\ -Verbose
+# -Automation Account with the following modules imported:
+# xActiveDirectory, xComputerManagement, xRemoteDesktopAdmin, xNetworking, xStorage
 #
 ##################################################################################
 

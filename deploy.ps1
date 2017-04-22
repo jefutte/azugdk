@@ -18,7 +18,8 @@ New-AzureRmResourceGroupDeployment `
                              -timeStamp (Get-Date) `
                              -registrationKey $regKey `
                              -registrationUrl $regUrl `
-                             -vmName $computerName
+                             -vmName $computerName `
+                             -Verbose
 
 #Cleanup
 #Remove-AzureRmResourceGroup -Name $rgName
